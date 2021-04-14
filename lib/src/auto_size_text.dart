@@ -261,8 +261,9 @@ class _AutoSizeTextState extends State<AutoSizeText> {
       Widget text;
 
       if (widget.group != null) {
-        widget.group!._updateFontSize(this, fontSize);
-        text = _buildText(widget.group!._fontSize, style, maxLines);
+        widget.group!._updateFontSize(this, style.fontSize!, fontSize);
+        text = _buildText(
+            widget.group!._getFontSize(style.fontSize!), style, maxLines);
       } else {
         text = _buildText(fontSize, style, maxLines);
       }
